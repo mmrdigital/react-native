@@ -508,10 +508,14 @@ public class ReactEditText extends AppCompatEditText
     mIsSettingTextFromJS = false;
   }
 
+  Boolean didSetFromState = false;
   public void maybeSetTextFromState(ReactTextUpdate reactTextUpdate) {
-    mIsSettingTextFromState = true;
-    maybeSetText(reactTextUpdate);
-    mIsSettingTextFromState = false;
+    if (didSetFromState == false) {
+       didSetFromState = true;
+      mIsSettingTextFromState = true;
+      maybeSetText(reactTextUpdate);
+      mIsSettingTextFromState = false;
+    }
   }
 
   public boolean canUpdateWithEventCount(int eventCounter) {
