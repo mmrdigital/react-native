@@ -446,7 +446,7 @@ task installArchives {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 34
     ndkVersion ANDROID_NDK_VERSION
     if (ANDROID_NDK_PATH != null) {
         ndkPath ANDROID_NDK_PATH
